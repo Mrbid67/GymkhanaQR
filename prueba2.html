@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 2 - Subir una Foto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Prueba 2: Sube una Foto</h1>
+    </header>
+    <main>
+        <h2>Instrucciones</h2>
+        <p>Para superar esta prueba, debes tomar una foto que represente el concepto de "aventura" y subirla a continuación. Asegúrate de que la foto sea original y esté bien enfocada.</p>
+        
+        <!-- Formulario para subir la foto -->
+        <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="file">Elige una foto:</label>
+            <input type="file" name="file" id="file" accept="image/*" required>
+            <input type="submit" value="Subir Foto" class="button">
+        </form>
+
+        <a class="button" href="index.html">Volver a la Página Principal</a>
+    </main>
+    <div class="footer">
+        <p>&copy; 2024 Gymkhana QR</p>
+    </div>
+</body>
+</html>
