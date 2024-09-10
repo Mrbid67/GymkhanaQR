@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respuesta Correcta - Prueba 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="languages.js"></script>
+    <script>
+        function setLanguageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || 'es'; // Default to Spanish if no lang provided
+
+            document.getElementById("title").textContent = (lang === 'es') ? "¡Respuesta Correcta!" : (lang === 'en') ? "Correct Answer!" : "Réponse Correcte!";
+            document.getElementById("message").textContent = (lang === 'es')
+                ? "Has acertado correctamente. Santillana del Mar es llamada la 'Villa de las Tres Mentiras' porque ni es santa, ni es llana, ni tiene mar."
+                : (lang === 'en')
+                ? "You got it right! Santillana del Mar is called the 'Village of the Three Lies' because it is neither saintly, nor flat, nor does it have a sea."
+                : "Vous avez bien répondu ! Santillana del Mar est appelée 'le Village des Trois Mensonges' parce qu'elle n'est ni sainte, ni plate, ni proche de la mer.";
+
+            document.getElementById("nextStep").textContent = (lang === 'es')
+                ? "Para avanzar a la siguiente prueba, dirígete al Museo de la Tortura."
+                : (lang === 'en')
+                ? "To proceed to the next test, go to the Torture Museum."
+                : "Pour avancer à l'épreuve suivante, rendez-vous au Musée de la Torture.";
+
+            document.getElementById("nextButton").textContent = (lang === 'es') ? "Ir a la Prueba 2" : (lang === 'en') ? "Go to Test 2" : "Aller à l'Épreuve 2";
+        }
+    </script>
+</head>
+<body onload="setLanguageFromURL()">
+    <header>
+        <h1 id="title"></h1>
+    </header>
+    <main>
+        <p id="message"></p>
+        <p id="nextStep"></p>
+
+        <a class="button" id="nextButton" href="prueba2.html?lang=">Ir a la Prueba 2</a>
+    </main>
+    <div class="footer">
+        <p>&copy; 2024 Gymkhana QR</p>
+    </div>
+</body>
+</html>

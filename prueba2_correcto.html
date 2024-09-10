@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respuesta Correcta - Prueba 2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="languages.js"></script>
+    <script>
+        function setLanguageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || 'es'; // Default to Spanish if no lang provided
+
+            document.getElementById("title").textContent = (lang === 'es') ? "¡Foto subida correctamente!" : (lang === 'en') ? "Photo uploaded successfully!" : "Photo téléchargée avec succès!";
+            document.getElementById("message").textContent = (lang === 'es')
+                ? "Has subido la foto correctamente. ¡Buen trabajo simulando algo del museo!"
+                : (lang === 'en')
+                ? "You have successfully uploaded the photo. Great job simulating something from the museum!"
+                : "Vous avez téléchargé la photo avec succès. Beau travail en simulant quelque chose du musée!";
+
+            document.getElementById("nextStep").textContent = (lang === 'es')
+                ? "Para avanzar a la siguiente prueba, dirígete a la Casa de los Hombrones y busca el escudo."
+                : (lang === 'en')
+                ? "To proceed to the next test, go to the Casa de los Hombrones and find the coat of arms."
+                : "Pour passer à l'épreuve suivante, rendez-vous à la Casa de los Hombrones et cherchez l'écusson.";
+
+            document.getElementById("nextButton").textContent = (lang === 'es') ? "Ir a la Prueba 3" : (lang === 'en') ? "Go to Test 3" : "Aller à l'Épreuve 3";
+        }
+    </script>
+</head>
+<body onload="setLanguageFromURL()">
+    <header>
+        <h1 id="title"></h1>
+    </header>
+    <main>
+        <p id="message"></p>
+        <p id="nextStep"></p>
+
+        <a class="button" id="nextButton" href="prueba3.html?lang=">Ir a la Prueba 3</a>
+    </main>
+    <div class="footer">
+        <p>&copy; 2024 Gymkhana QR</p>
+    </div>
+</body>
+</html>

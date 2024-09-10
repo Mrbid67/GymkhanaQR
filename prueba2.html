@@ -3,25 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba 2 - Subir una Foto</title>
+    <title>Prueba 2 - Museo de la Tortura</title>
     <link rel="stylesheet" href="style.css">
+    <script src="languages.js"></script>
+    <script>
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            document.getElementById("title").textContent = translations[lang].pruebas[1].pregunta;
+            document.getElementById("instruction").textContent = translations[lang].pruebas[1].instruccion;
+            document.getElementById("uploadButton").textContent = (lang === 'es') ? 'Subir Foto' : (lang === 'en') ? 'Upload Photo' : 'Télécharger la photo';
+            document.getElementById("langInput").value = lang;  // Actualiza el valor del input hidden para el idioma
+        }
+
+        // Función para mostrar mensajes de error
+        function mostrarError(mensaje) {
+            document.getElementById("mensaje").textContent = mensaje;
+        }
+    </script>
 </head>
-<body>
+<body onload="changeLanguage('es')"> <!-- Por defecto en español -->
     <header>
-        <h1>Prueba 2: Sube una Foto</h1>
+        <h1 id="title"></h1>
     </header>
+    <nav>
+        <button onclick="changeLanguage('es')">Español</button>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('fr')">Français</button>
+    </nav>
     <main>
-        <h2>Instrucciones</h2>
-        <p>Para superar esta prueba, debes tomar una foto que represente el concepto de "aventura" y subirla a continuación. Asegúrate de que la foto sea original y esté bien enfocada.</p>
-        
-        <!-- Formulario para subir la foto -->
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <label for="file">Elige una foto:</label>
-            <input type="file" name="file" id="file" accept="image/*" required>
-            <input type="submit" value="Subir Foto" class="button">
+        <p id="instruction"></p>
+
+        <!-- Formulario de subida de foto que se envía a upload.php -->
+        <form action="upload.php" method="POST" enctype="multipart/form-data">
+            <input type="hidden" id="langInput" name="lang" value="es"> <!-- Idioma seleccionado -->
+            <input type="file" id="foto" name="foto" accept="image/*" required>
+            <button type="submit" id="uploadButton">Subir Foto</button>
         </form>
 
-        <a class="button" href="index.html">Volver a la Página Principal</a>
+        <p id="mensaje" style="color: red;"></p>
     </main>
     <div class="footer">
         <p>&copy; 2024 Gymkhana QR</p>

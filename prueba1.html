@@ -3,17 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba 1 - Gymkhana QR</title>
+    <title>Prueba 1 - Villa de las Tres Mentiras</title>
     <link rel="stylesheet" href="style.css">
+    <script src="languages.js"></script>
+    <script>
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            document.getElementById("title").textContent = translations[lang].pruebas[0].pregunta;
+            document.getElementById("instruction").textContent = translations[lang].pruebas[0].pregunta;
+            document.getElementById("submitButton").textContent = (lang === 'es') ? 'Enviar Respuesta' : (lang === 'en') ? 'Submit Answer' : 'Envoyer la Réponse';
+        }
+
+        // Función para validar la respuesta
+        function validarRespuesta(lang) {
+            const respuesta = document.getElementById("respuesta").value.toLowerCase();
+            const contieneSanta = respuesta.includes("santa");
+            const contieneLlana = respuesta.includes("llana");
+            const contieneMar = respuesta.includes("mar");
+
+            if (contieneSanta && contieneLlana && contieneMar) {
+                window.location.href = "prueba1_correcto.html?lang=" + lang;
+            } else {
+                const mensaje = {
+                    es: "Respuesta incorrecta.",
+                    en: "Incorrect answer.",
+                    fr: "Réponse incorrecte."
+                };
+                document.getElementById("mensaje").textContent = mensaje[lang];
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="changeLanguage('es')"> <!-- Por defecto en español -->
     <header>
-        <h1>Prueba 1: Encuentra la pista</h1>
+        <h1 id="title"></h1>
     </header>
+    <nav>
+        <button onclick="changeLanguage('es')">Español</button>
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('fr')">Français</button>
+    </nav>
     <main>
-        <h2>Instrucciones</h2>
-        <p>Para superar esta prueba, deberás buscar una pista escondida en el área. La pista está en un lugar alto y sólo se puede acceder usando una escalera. Una vez que encuentres la pista, recibirás el siguiente código QR.</p>
-        <a class="button" href="index.html">Volver al inicio</a>
+        <p id="instruction"></p>
+        <input type="text" id="respuesta" placeholder="Escribe tu respuesta aquí...">
+        <button id="submitButton" onclick="validarRespuesta(document.querySelector('button.active').getAttribute('lang'))">Enviar Respuesta</button>
+
+        <p id="mensaje" style="color: red;"></p>
     </main>
     <div class="footer">
         <p>&copy; 2024 Gymkhana QR</p>
