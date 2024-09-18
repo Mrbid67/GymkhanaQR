@@ -10,6 +10,7 @@
         // Función para cambiar el idioma de la página
         function changeLanguage(lang) {
             document.getElementById("title").textContent = translations[lang].inicio.titulo;
+            document.getElementById("prueba").textContent = translations[lang].inicio.prueba;
             document.getElementById("subtitle").textContent = translations[lang].inicio.subtitulo;
 
             // Cambiar los textos de los botones de pruebas
@@ -22,7 +23,7 @@
 </head>
 <body onload="changeLanguage('es')"> <!-- Por defecto español -->
     <header>
-        <h1 id="title"></h1>
+        <h1 id="prueba"></h1>
     </header>
     <nav>
         <button onclick="changeLanguage('es')">Español</button>

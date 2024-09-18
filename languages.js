@@ -1,45 +1,56 @@
 const translations = {
     es: {
         title: "Gymkhana QR",
+        placeHolder:"Escribe tu respuesta aquí...",
         pruebas: [
             {
-                pregunta: "SALIDA OFICINA DE TURISMO. ¿POR QUÉ LA LLAMAN LA VILLA DE LAS TRES MENTIRAS?",
+                prueba:"OFICINA DE TURISMO",
+                pregunta: "¿POR QUÉ LA LLAMAN LA VILLA DE LAS TRES MENTIRAS?",
                 respuesta: "Ni Santa ni llana ni tiene Mar"
             },
             {
-                pregunta: "MUSEO DE LA TORTURA. TENDRÁS QUE DIRIGIRTE POR LA CALLE JESÚS OTERO Y GIRAR HACIA LA IZQUIERDA POR LA CALLE MARTÍN CLISSON Y HACERTE UNA FOTO SIMULANDO ALGO DE LO QUE SE REPRESENTA DENTRO DEL MUSEO.",
+                prueba:"MUSEO DE LA TORTURA",
+                pregunta: "TENDRÁS QUE DIRIGIRTE POR LA CALLE JESÚS OTERO Y GIRAR HACIA LA IZQUIERDA POR LA CALLE MARTÍN CLISSON Y HACERTE UNA FOTO SIMULANDO ALGO DE LO QUE SE REPRESENTA DENTRO DEL MUSEO.",
                 respuesta: ""
             },
             {
-                pregunta: "CASA DE LOS HOMBRONES. ¿CÓMO SE LLAMA ESE EDIFICIO Y POR QUÉ?",
+                prueba:"CASA DE LOS HOMBRONES",
+                pregunta: "¿CÓMO SE LLAMA ESE EDIFICIO Y POR QUÉ?",
                 respuesta: "La casa de los hombrones, por los hombres que hay a ambos lados del escudo."
             },
             {
-                pregunta: "LAVADERO (BAJANDO POR LA CALLE CANTÓN).",
+                prueba:"LAVADERO ",
+                pregunta: "",
                 respuesta: ""
             },
             {
-                pregunta: "CASA QUEVEDO PUESTO BIZCOCHOS Y LECHE. ¿QUÉ PASA SI NO TOMAS UN VASO DE LECHE CON BIZCOCHO?",
+                prueba:"CASA QUEVEDO",
+                pregunta: "¿QUÉ PASA SI NO TOMAS UN VASO DE LECHE CON BIZCOCHO?",
                 respuesta: "No te casas"
             },
             {
-                pregunta: "MUSEO JESÚS OTERO. ¿A QUIÉN REPRESENTAN LAS SIETE CARAS TALLADAS EN PIEDRA?",
+                prueba:"MUSEO JESÚS OTERO",
+                pregunta: "¿A QUIÉN REPRESENTAN LAS SIETE CARAS TALLADAS EN PIEDRA?",
                 respuesta: "Su familia"
             },
             {
-                pregunta: "COLEGIATA. ¿LAS RELIQUIAS DE QUÉ SANTA SE ENCUENTRAN EN SU INTERIOR?",
+                prueba:"COLEGIATA",
+                pregunta: "¿LAS RELIQUIAS DE QUÉ SANTA SE ENCUENTRAN EN SU INTERIOR?",
                 respuesta: "Santa Juliana"
             },
             {
-                pregunta: "PLAZA MAYOR. ¿QUÉ TRES BANDERAS ONDEAN EN EL AYUNTAMIENTO?",
+                prueba:"PLAZA MAYOR",
+                pregunta: "¿QUÉ TRES BANDERAS ONDEAN EN EL AYUNTAMIENTO?",
                 respuesta: "Santillana, España, Cantabria y Europa."
             },
             {
-                pregunta: "CASA DEL AGUILA Y LA PARRA. HACERSE FOTO DIVERTIDA CON EL BISONTE.",
+                prueba:"CASA DEL AGUILA Y LA PARRA",
+                pregunta: "HACERSE FOTO DIVERTIDA CON EL BISONTE.",
                 respuesta: ""
             },
             {
-                pregunta: "OFICINA DE TURISMO. ¿CON QUÉ DOS CIUDADES EUROPEAS ESTÁ HERMANADA SANTILLANA?",
+                prueba:"OFICINA DE TURISMO",
+                pregunta: "¿CON QUÉ DOS CIUDADES EUROPEAS ESTÁ HERMANADA SANTILLANA?",
                 respuesta: "Borgolavezzaro (Italia) y Le Dorat (Francia)"
             }
         ],
