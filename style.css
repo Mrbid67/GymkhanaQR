@@ -1,106 +1,126 @@
 /* style.css */
-:root {
-    --primary-color: #303030;
-    --secondary-color: #696969;
-    --text-color: #ffffff;
-    --background-color: #000000;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    max-width: 75vw;
-  }
-  
-  header {
-    background-color: var(--primary-color);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 1rem;
-    max-width: 100%;
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  .content {
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
-  }
-  
-  h2 {
-    color: var(--primary-color);
-    margin-top: 0;
-  }
-  
-  p {
-    line-height: 1.6;
-  }
-  
-  .button {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.7rem 1.2rem;
-    text-decoration: none;
-    border-radius: 25px;
-    margin-top: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover, .button:focus {
-    background-color: var(--secondary-color);
-  }
-  
-  .footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: white;
-    width: 100%;
-  }
-  
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 1.2rem;
-    }
-  
-    main {
-      padding: 0.5rem;
-    }
-  
-    .button {
-      display: block;
-      width: 100%;
-    }
 
-    .pregunta{
-        font-weight: bold;
-        font-size: large;
-    }
-  }
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+:root {
+  --primary-color: #303030;
+  --secondary-color: #696969;
+  --text-color: #ffffff;
+  --background-color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*this is for the nav*/
+
+.language {
+  display: inline-block; /* Keeps it inline, ideal for nav */
+  padding: .4rem .4rem; /* Adds some spacing */
+  border-radius: 100%; /* Rounded corners */
+  cursor: pointer; /* Changes cursor to pointer */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.language:active  {
+  background-color: #7e7e7e; /* Changes background on hover */
+}
+
+.language-select {
+  font-weight: bold; /* Emphasizes the current language */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", Arial, sans-serif;
+	min-height: 100vh;
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 100%;
+  width: 100%;
+  margin: 2rem auto;
   
+}
+
+.content {
+  width: 80%;
+  text-align: center;
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  border-radius: 25px;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--secondary-color);
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+
+  .button {
+    display: block;
+    width: 100%;
+  }
+
+  .pregunta {
+    font-weight: bold;
+    font-size: large;
+  }
+}

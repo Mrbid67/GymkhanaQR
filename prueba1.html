@@ -38,16 +38,20 @@
 </head>
 
 <body onload="changeLanguage('es')"> <!-- Por defecto en español -->
+
     <header>
         <h1 id="title"></h1>
     </header>
+    
     <nav>
-        <button onclick="changeLanguage('es')">Español</button>
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('fr')">Français</button>
+        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png" width="40rem"></a>
+        <a onclick="changeLanguage('en')" class="language"><img src="resources/englishFlag.png" width="40rem"></a>
+        <a onclick="changeLanguage('fr')" class="language"><img src="resources/franceFlag.png" width="40rem"></a>
     </nav>
+
     <main>
 
+        <div class="content">
 
             <p id="instruction" class="pregunta"></p>
             <input type="text" id="respuesta" placeholder="Escribe tu respuesta aquí...">
@@ -55,7 +59,8 @@
                 onclick="validarRespuesta(document.querySelector('button.active').getAttribute('lang'))">Enviar
                 Respuesta</button>
 
-        <p id="mensaje" style="color: red;"></p>
+            <p id="mensaje" style="color: red;"></p>
+        </div>
     </main>
     <div class="footer">
         <p>&copy; 2024 Gymkhana QR</p>

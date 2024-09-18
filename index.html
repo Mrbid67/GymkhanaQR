@@ -21,15 +21,19 @@
         }
     </script>
 </head>
+
 <body onload="changeLanguage('es')"> <!-- Por defecto español -->
+    
     <header>
         <h1 id="prueba"></h1>
     </header>
+    
     <nav>
-        <button onclick="changeLanguage('es')">Español</button>
-        <button onclick="changeLanguage('en')">English</button>
-        <button onclick="changeLanguage('fr')">Français</button>
+        <a onclick="changeLanguage('es')" class="language language-select">Español</a>
+        <a onclick="changeLanguage('en')" class="language">English</a>
+        <a onclick="changeLanguage('fr')" class="language">Français</a>
     </nav>
+    
     <main>
         <h2 id="subtitle"></h2>
         
