@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +8,51 @@
     <link rel="stylesheet" href="style.css">
     <script src="languages.js"></script>
     <script>
-        function setLanguageFromURL() {
+        function changeLanguage() {
+            
             const urlParams = new URLSearchParams(window.location.search);
             const lang = urlParams.get('lang') || 'es'; // Default to Spanish if no lang provided
 
-            document.getElementById("title").textContent = (lang === 'es') ? "¡Respuesta Correcta!" : (lang === 'en') ? "Correct Answer!" : "Réponse Correcte!";
+            document.getElementById("title").textContent = (lang === 'es') ? "¡Correcto!" : (lang === 'en') ? "Correct Answer!" : "Réponse Correcte!";
             document.getElementById("message").textContent = (lang === 'es')
                 ? "Has acertado correctamente. Santillana del Mar es llamada la 'Villa de las Tres Mentiras' porque ni es santa, ni es llana, ni tiene mar."
                 : (lang === 'en')
-                ? "You got it right! Santillana del Mar is called the 'Village of the Three Lies' because it is neither saintly, nor flat, nor does it have a sea."
-                : "Vous avez bien répondu ! Santillana del Mar est appelée 'le Village des Trois Mensonges' parce qu'elle n'est ni sainte, ni plate, ni proche de la mer.";
+                    ? "You got it right! Santillana del Mar is called the 'Village of the Three Lies' because it is neither saintly, nor flat, nor does it have a sea."
+                    : "Vous avez bien répondu ! Santillana del Mar est appelée 'le Village des Trois Mensonges' parce qu'elle n'est ni sainte, ni plate, ni proche de la mer.";
 
             document.getElementById("nextStep").textContent = (lang === 'es')
                 ? "Para avanzar a la siguiente prueba, dirígete al Museo de la Tortura."
                 : (lang === 'en')
-                ? "To proceed to the next test, go to the Torture Museum."
-                : "Pour avancer à l'épreuve suivante, rendez-vous au Musée de la Torture.";
-
-            document.getElementById("nextButton").textContent = (lang === 'es') ? "Ir a la Prueba 2" : (lang === 'en') ? "Go to Test 2" : "Aller à l'Épreuve 2";
+                    ? "To proceed to the next test, go to the Torture Museum."
+                    : "Pour avancer à l'épreuve suivante, rendez-vous au Musée de la Torture.";
         }
     </script>
 </head>
-<body onload="setLanguageFromURL()">
+
+<body onload="changeLanguage()">
     <header>
         <h1 id="title"></h1>
     </header>
     <main>
         <p id="message"></p>
-        <p id="nextStep"></p>
+        <hr style="width:50%">
 
-        <a class="button" id="nextButton" href="prueba2.html?lang=">Ir a la Prueba 2</a>
+        <div>
+
+            <p id="nextStep"></p>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d875.8578849985618!2d-4.1080389714322125!3d43.38974164818722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0xd49151f08d25429%3A0x93806be2758ac58e!2sOficina%20Turismo%20de%20Santillana%20Del%20Mar%2C%20C.%20Jes%C3%BAs%20Otero%2C%2020%2C%2039330%20Santillana%20del%20Mar%2C%20Cantabria!3m2!1d43.389231599999995!2d-4.1076505!4m5!1s0xd49151f5e933757%3A0x35983136ef209011!2sMuseo%20de%20la%20Tortura%2C%20Calle%20de%20Bertrand%20Clisson%2C%20Santillana%20del%20Mar!3m2!1d43.390308999999995!2d-4.107056!5e1!3m2!1ses!2ses!4v1726912419842!5m2!1ses!2ses"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+        <hr style="width:50%">
+
     </main>
     <div class="footer">
         <p>&copy; 2024 Gymkhana QR</p>
     </div>
 </body>
+
 </html>

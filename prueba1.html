@@ -7,6 +7,7 @@
     <title>Prueba 1 - Villa de las Tres Mentiras</title>
     <link rel="stylesheet" href="style.css">
     <script src="languages.js"></script>
+    
     <script>
 
         let currentLang = 'es';
@@ -17,7 +18,7 @@
             document.getElementById("title").textContent = translations[lang].pruebas[0].prueba;
             document.getElementById("instruction").textContent = translations[lang].pruebas[0].pregunta;
             document.getElementById("submitButton").textContent = (lang === 'es') ? 'Enviar Respuesta' : (lang === 'en') ? 'Submit Answer' : 'Envoyer la Réponse';
-            document.getElementById("respuesta").textContent = ranslations[lang].pruebas.placeHolder;
+            document.getElementById("respuesta").placeholder = (lang === 'es') ? 'Escribe aquí...' : (lang === 'en') ? 'Write here...' : 'Escribe aquí...';
         }
 
         // Función para validar la respuesta
@@ -35,6 +36,16 @@
                     en: "Incorrect answer.",
                     fr: "Réponse incorrecte."
                 };
+
+                const mensajeElemento = document.getElementById("mensaje");
+                mensajeElemento.textContent = mensaje[currentLang];
+
+                // Mostrar el mensaje y ocultarlo después de 5 segundos
+                mensajeElemento.style.display = 'block';
+                setTimeout(function() {
+                    mensajeElemento.style.display = 'none';
+                }, 5000); // 5000 milisegundos = 5 segundos
+
                 document.getElementById("mensaje").textContent = mensaje[currentLang];
             }
         }
@@ -60,7 +71,7 @@
 
             <p id="instruction" class="pregunta"></p>
 
-            <input type="text" id="respuesta" class="input" placeholder="Escribe tu respuesta aquí...">
+            <input type="text" id="respuesta" class="input">
 
 
             <button id="submitButton" class="button" onclick="validarRespuesta()">Enviar Respuesta</button>

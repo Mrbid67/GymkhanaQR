@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba 2 - Museo de la tortura</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="languages.js"></script>
+    
+    <script>
+
+        let currentLang = 'es';
+
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            currentLang = lang; // Actualiza el idioma actual
+            document.getElementById("title").textContent = translations[lang].pruebas[1].prueba;
+            document.getElementById("instruction").textContent = translations[lang].pruebas[1].pregunta;
+            document.getElementById("instruction1").textContent = translations[lang].pruebas[1].pregunta1;
+            document.getElementById("submitButton").textContent = (lang === 'es') ? 'Enviar Foto' : (lang === 'en') ? 'Submit Photo' : 'Envoyer la photo';
+        }
+
+        // Función para previsualizar la imagen
+        function previsualizarFoto(event) {
+            const fileInput = event.target;
+            const file = fileInput.files[0];
+            const preview = document.getElementById("preview");
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = "block"; // Mostrar la imagen
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Función para confirmar y enviar el formulario
+        function confirmarEnvio() {
+            const confirmacion = confirm("¿Estás seguro de que quieres enviar esta foto?");
+            if (confirmacion) {
+                document.getElementById("fotoForm").submit(); // Enviar el formulario si se confirma
+            }
+        }
+
+    </script>
+</head>
+
+<body onload="changeLanguage('es')"> <!-- Por defecto en español -->
+
+    <header>
+        <h1 id="title" style="font-family: creepy; font-size: 2rem;"></h1>
+    </header>
+
+    <nav>
+        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png" width="40rem"></a>
+        <a onclick="changeLanguage('en')" class="language"><img src="resources/englishFlag.png" width="40rem"></a>
+        <a onclick="changeLanguage('fr')" class="language"><img src="resources/franceFlag.png" width="40rem"></a>
+    </nav>
+
+    <main>
+
+        <div class="content">
+            <p id="instruction" class="pregunta"></p>
+            <p id="instruction1" class="pregunta"></p>
+
+            <!-- Formulario para subir foto -->
+            <form id="fotoForm" action="subir_foto.php" method="post" enctype="multipart/form-data">
+                <input type="file" id="foto" name="foto" accept="image/*" capture="environment" onchange="previsualizarFoto(event)">
+                <input type="hidden" name="lang" value="es"> <!-- Enviar el idioma -->
+                
+                <!-- Previsualización de la foto -->
+                <img id="preview" src="" alt="Previsualización de la foto" style="display:none; max-width:100%; margin-top:10px;"/>
+
+                <button type="button" id="submitButton" class="button" onclick="confirmarEnvio()">Enviar Foto</button>
+            </form>
+
+            <p id="mensaje" style="color: red; display: none;"></p>
+        </div>
+    </main>
+    <div class="footer">
+        <p>&copy; 2024 Gymkhana QR</p>
+    </div>
+</body>
+
+</html>
