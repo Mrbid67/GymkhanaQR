@@ -1,7 +1,7 @@
 <?php
 // Configuraciones
 $uploadDir = 'uploads/prueba2/'; // Carpeta donde se guardará la imagen
-$maxFileSize = 20 * 1024 * 1024; // Tamaño máximo del archivo (2 MB)
+$maxFileSize = 12 * 1024 * 1024; // Tamaño máximo del archivo (2 MB)
 
 // Verificar si el archivo fue enviado a través del formulario
 if (isset($_FILES['foto'])) {
@@ -19,7 +19,7 @@ if (isset($_FILES['foto'])) {
     if (in_array($fileExtension, $allowedExtensions)) {
         // Verificar el tamaño del archivo
         if ($fileSize > $maxFileSize) {
-            echo "Error: El archivo es demasiado grande. Tamaño máximo: 20 MB.";
+            echo "Error: El archivo es demasiado grande. Tamaño máximo: 2 MB.";
             exit();
         }
 
@@ -31,7 +31,9 @@ if (isset($_FILES['foto'])) {
 
         // Intentar mover el archivo subido a la carpeta de destino
         if (move_uploaded_file($fileTmpPath, $destinationPath)) {
-            echo "Archivo subido correctamente: " . $newFileName;
+            // Redirigir al usuario a prueba2_correcto.html si la subida fue exitosa
+            header("Location: prueba2_correcto.html");
+            exit(); // Termina el script después de redirigir
         } else {
             echo "Error al mover el archivo.";
         }
