@@ -77,20 +77,46 @@
             </form>
             
             <script>
-            function previsualizarVideo(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const preview = document.getElementById('previewVideo');
-                    const url = URL.createObjectURL(file);
-                    preview.src = url;
-                    preview.style.display = 'block';
+                function uploadVideo() {
+                    const formData = new FormData(document.getElementById('videoForm'));
+                    const xhr = new XMLHttpRequest();
+                
+                    xhr.open('POST', 'upload_video.php', true);
+                
+                    // Mostrar la barra de progreso
+                    document.getElementById('progressContainer').style.display = 'block';
+                
+                    // Actualizar la barra de progreso
+                    xhr.upload.onprogress = function(event) {
+                        if (event.lengthComputable) {
+                            const percentComplete = (event.loaded / event.total) * 100;
+                            document.getElementById('progressBar').value = percentComplete;
+                        }
+                    };
+                
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            // Redirigir al usuario a prueba4_correcto.html
+                            window.location.href = 'prueba4_correcto.html';
+                        } else {
+                            alert('Error al subir el video. Intente nuevamente.');
+                        }
+                    };
+                
+                    xhr.send(formData);
                 }
-            }
-            
-            function confirmarEnvio() {
-                document.getElementById('videoForm').submit();
-            }
-            </script>
+                
+                // Previsualizar el video
+                document.getElementById('video').addEventListener('change', function(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const preview = document.getElementById('previewVideo');
+                        const url = URL.createObjectURL(file);
+                        preview.src = url;
+                        preview.style.display = 'block';
+                    }
+                });
+                </script>
 
           
         </div>
