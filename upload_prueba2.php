@@ -1,6 +1,6 @@
 <?php
 // Definir la carpeta donde se guardarán las fotos subidas
-$target_dir = "uploads/prueba2";
+$target_dir = "uploads/prueba2/";
 $target_file = $target_dir . basename($_FILES["foto"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

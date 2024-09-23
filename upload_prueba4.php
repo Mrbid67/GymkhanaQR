@@ -1,6 +1,6 @@
 <?php
 // Definir la carpeta donde se guardarán los videos subidos
-$target_dir = "uploads/prueba4";
+$target_dir = "uploads/prueba4/";
 $target_file = $target_dir . basename($_FILES["video"]["name"]);
 $uploadOk = 1;
 $videoFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
