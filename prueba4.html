@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba 2 - Museo de la tortura</title>
+    <title>Prueba 4</title>
     <link rel="stylesheet" href="style.css">
     <script src="languages.js"></script>
     
@@ -15,10 +15,10 @@
         // Función para cambiar idioma
         function changeLanguage(lang) {
             currentLang = lang; // Actualiza el idioma actual
-            document.getElementById("title").textContent = translations[lang].pruebas[1].prueba;
-            document.getElementById("instruction").textContent = translations[lang].pruebas[1].pregunta;
-            document.getElementById("instruction1").textContent = translations[lang].pruebas[1].pregunta1;
-            document.getElementById("submitButton").textContent = (lang === 'es') ? 'Enviar Foto' : (lang === 'en') ? 'Submit Photo' : 'Envoyer la photo';
+            document.getElementById("title").textContent = translations[lang].pruebas[3].prueba;
+            document.getElementById("instruction").textContent = translations[lang].pruebas[3].pregunta;
+            document.getElementById("instruction1").textContent = translations[lang].pruebas[3].pregunta1;
+            document.getElementById("submitButton").textContent = (lang === 'es') ? 'Enviar Archivo' : (lang === 'en') ? 'Submit Photo' : 'Envoyer la photo';
         }
 
         // Función para previsualizar la imagen
@@ -67,17 +67,17 @@
             <p id="instruction1" class="pregunta"></p>
 
             <!-- Formulario para subir foto -->
-            <form id="fotoForm" action="upload_prueba2.php" method="post" enctype="multipart/form-data">
-                <input type="file" id="foto" name="foto" class="input" accept="image/*" capture="environment" onchange="previsualizarFoto(event)">
+            <form id="fotoForm" action="upload_prueba4.php" method="post" enctype="multipart/form-data">
+                <input type="file" id="foto" name="foto" class="input" accept="video/*" capture="environment" onchange="previsualizarFoto(event)">
                 <input type="hidden" name="lang" value="es"> <!-- Enviar el idioma -->
                 
                 <!-- Previsualización de la foto -->
-                <img id="preview" src="" alt="Previsualización de la foto" style="display:none; max-width:100%; margin-top:10px;"/>
+                <video id="preview" src="" alt="Previsualización de la foto" style="display:none; max-width:100%; margin-top:10px;"></video>
 
-                <button type="button" id="submitButton" class="button" onclick="confirmarEnvio()">Enviar Video</button>
+                <button type="button" id="submitButton" class="button" onclick="confirmarEnvio()">Enviar Foto</button>
             </form>
 
-            <p id="mensaje" style="color: red; display: none;"></p>
+          
         </div>
     </main>
     <div class="footer">

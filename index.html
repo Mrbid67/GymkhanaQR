@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,16 @@
     <script>
         // Función para cambiar el idioma de la página
         function changeLanguage(lang) {
-            document.getElementById("title").textContent = translations[lang].inicio.titulo;
-            document.getElementById("prueba").textContent = translations[lang].inicio.prueba;
-            document.getElementById("subtitle").textContent = translations[lang].inicio.subtitulo;
+            document.getElementById("title").textContent = translations[lang].inicio[0].title;
+            document.getElementById("subtitle").textContent = translations[lang].inicio[0].subtitle;
+            document.getElementById("instructions").textContent = translations[lang].inicio[0].instructions;
+            
+            document.getElementById("i1").textContent = translations[lang].inicio[0].i1;
+            document.getElementById("i2").textContent = translations[lang].inicio[0].i2;
+            document.getElementById("i3").textContent = translations[lang].inicio[0].i3;
+            document.getElementById("i4").textContent = translations[lang].inicio[0].i4;
+            document.getElementById("i5").textContent = translations[lang].inicio[0].i5;
+            document.getElementById("i6").textContent = translations[lang].inicio[0].i6;
 
             // Cambiar los textos de los botones de pruebas
             const pruebas = document.getElementsByClassName('test-link');
@@ -23,37 +31,66 @@
 </head>
 
 <body onload="changeLanguage('es')"> <!-- Por defecto español -->
-    
+
     <header>
         <h1 id="title"></h1>
     </header>
-    
+
     <nav>
-        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png" width="40rem"></a>
+        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png"
+                width="40rem"></a>
         <a onclick="changeLanguage('en')" class="language"><img src="resources/englishFlag.png" width="40rem"></a>
         <a onclick="changeLanguage('fr')" class="language"><img src="resources/franceFlag.png" width="40rem"></a>
     </nav>
-    
+
     <main>
-        <h2 id="subtitle"></h2>
-        
-        <!-- Enlaces directos para debug -->
-        <ul>
-            <li><a class="test-link" href="prueba1.html?lang=es">Prueba 1</a></li>
-            <li><a class="test-link" href="prueba2.html?lang=es">Prueba 2</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 3</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 4</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 5</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 6</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 7</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 8</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 9</a></li>
-            <li><a class="test-link" href="prueba3.html?lang=es">Prueba 10</a></li>
-            <!-- Agregar más enlaces según las pruebas disponibles -->
-        </ul>
+        <div class="content">
+
+            <h2 id="subtitle"></h2>
+
+            <p id="instructions"></p>
+
+            <ul>
+                <li id="i1"></li>
+                <li id="i2"></li>
+                <li id="i3"></li>
+                <li id="i4"></li>
+                <li id="i5"></li>
+
+            </ul>
+
+            <p>Enlaces a las pruebas</p>
+            <!-- Enlaces directos para debug -->
+            <ul>
+                <li><a class="test-link" href="prueba1.html?lang=es">Prueba 1</a></li>
+                <li><a class="test-link" href="prueba2.html?lang=es">Prueba 2</a></li>
+                <li><a class="test-link" href="prueba3.html?lang=es">Prueba 3</a></li>
+                <li><a class="test-link" href="prueba4.html?lang=es">Prueba 4</a></li>
+                <li><a class="test-link" href="prueba5.html?lang=es">Prueba 5</a></li>
+                <li><a class="test-link" href="prueba6.html?lang=es">Prueba 6</a></li>
+                <li><a class="test-link" href="prueba7.html?lang=es">Prueba 7</a></li>
+                <li><a class="test-link" href="prueba8.html?lang=es">Prueba 8</a></li>
+                <li><a class="test-link" href="prueba9.html?lang=es">Prueba 9</a></li>
+                <li><a class="test-link" href="prueba10.html?lang=es">Prueba 10</a></li>
+                <!-- Agregar más enlaces según las pruebas disponibles -->
+            </ul>
+
+            <p>Enlaces a los pasos entre pruebas</p>
+            <li><a class="test-link" href="prueba1_correcto.html">Prueba 1 -> 2</a></li>
+            <li><a class="test-link" href="prueba2_correcto.html?lang=es">Prueba 2 -> 3</a></li>
+            <li><a class="test-link" href="prueba3_correcto.html?lang=es">Prueba 3 -> 4</a></li>
+            <li><a class="test-link" href="prueba4_correcto.html?lang=es">Prueba 4 -> 5</a></li>
+            <li><a class="test-link" href="prueba5_correcto.html?lang=es">Prueba 5 -> 6</a></li>
+            <li><a class="test-link" href="prueba6_correcto.html?lang=es">Prueba 6 -> 7</a></li>
+            <li><a class="test-link" href="prueba7_correcto.html?lang=es">Prueba 7 -> 8</a></li>
+            <li><a class="test-link" href="prueba8_correcto.html?lang=es">Prueba 8 -> 9</a></li>
+            <li><a class="test-link" href="prueba9_correcto.html?lang=es">Prueba 9 -> 10</a></li>
+            <li><a class="test-link" href="prueba10_correcto.html?lang=es">Prueba 10</a></li>
+        </div>
     </main>
     <div class="footer">
         <p>&copy; 2024 Gymkhana QR</p>
     </div>
 </body>
+
 </html>

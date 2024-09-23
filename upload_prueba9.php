@@ -1,6 +1,6 @@
 <?php
 // Definir la carpeta donde se guardarán las fotos subidas
-$target_dir = "uploads/prueba2";
+$target_dir = "uploads/prueba9";
 $target_file = $target_dir . basename($_FILES["foto"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -45,7 +45,7 @@ if ($uploadOk == 0) {
         // Obtener el idioma para redirigir correctamente
         $lang = isset($_POST['lang']) ? $_POST['lang'] : 'es';
         // Redirigir a la página de éxito con el idioma correcto
-        header("Location: prueba2_correcto.html?lang=$lang");
+        header("Location: prueba9_correcto.html?lang=$lang");
         exit();
     } else {
         echo "Lo sentimos, hubo un error al subir tu archivo.";

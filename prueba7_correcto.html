@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respuesta Correcta - Prueba 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="languages.js"></script>
+    <script>
+        function changeLanguage() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || 'es'; // Default to Spanish if no lang provided
+
+            currentLang = lang; // Actualiza el idioma actual
+            document.getElementById("title").textContent = translations[lang].correcto[6].title;
+            document.getElementById("message").textContent = translations[lang].correcto[6].message;
+            document.getElementById("nextStep").textContent = translations[lang].correcto[6].nextStep;
+        }
+          
+    </script>
+</head>
+
+<body onload="changeLanguage()">
+    <header>
+        <h1 id="title"></h1>
+    </header>
+    <main>
+        <div class="content">
+
+            <p id="message"></p>
+            <hr style="width:50%">
+
+            <p id="nextStep">43.39083689040272, -4.108305988603658</p>
+
+            <hr style="width:50%">
+        </div>
+
+    </main>
+    <div class="footer">
+        <p>&copy; 2024 Gymkhana QR</p>
+    </div>
+</body>
+
+</html>

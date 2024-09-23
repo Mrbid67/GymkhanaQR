@@ -9,23 +9,16 @@
     <script src="languages.js"></script>
     <script>
         function changeLanguage() {
-            
+
             const urlParams = new URLSearchParams(window.location.search);
             const lang = urlParams.get('lang') || 'es'; // Default to Spanish if no lang provided
 
-            document.getElementById("title").textContent = (lang === 'es') ? "¡Correcto!" : (lang === 'en') ? "Correct Answer!" : "Réponse Correcte!";
-            document.getElementById("message").textContent = (lang === 'es')
-                ? "Has acertado correctamente. Santillana del Mar es llamada la 'Villa de las Tres Mentiras' porque ni es santa, ni es llana, ni tiene mar."
-                : (lang === 'en')
-                    ? "You got it right! Santillana del Mar is called the 'Village of the Three Lies' because it is neither saintly, nor flat, nor does it have a sea."
-                    : "Vous avez bien répondu ! Santillana del Mar est appelée 'le Village des Trois Mensonges' parce qu'elle n'est ni sainte, ni plate, ni proche de la mer.";
-
-            document.getElementById("nextStep").textContent = (lang === 'es')
-                ? "Para avanzar a la siguiente prueba, dirígete al Museo de la Tortura."
-                : (lang === 'en')
-                    ? "To proceed to the next test, go to the Torture Museum."
-                    : "Pour avancer à l'épreuve suivante, rendez-vous au Musée de la Torture.";
+            currentLang = lang; // Actualiza el idioma actual
+            document.getElementById("title").textContent = translations[lang].correcto[0].title;
+            document.getElementById("message").textContent = translations[lang].correcto[0].message;
+            document.getElementById("nextStep").textContent = translations[lang].correcto[0].nextStep;
         }
+          
     </script>
 </head>
 
@@ -34,10 +27,10 @@
         <h1 id="title"></h1>
     </header>
     <main>
-        <p id="message"></p>
-        <hr style="width:50%">
+        <div class="content">
+            <p id="message"></p>
+            <hr style="width:50%">
 
-        <div>
 
             <p id="nextStep"></p>
 
@@ -46,8 +39,8 @@
                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
 
+            <hr style="width:50%">
         </div>
-        <hr style="width:50%">
 
     </main>
     <div class="footer">

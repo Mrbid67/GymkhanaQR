@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba 1 - Inicio</title>
+    <title>Prueba 7 - Colegiata</title>
     <link rel="stylesheet" href="style.css">
     <script src="languages.js"></script>
     
@@ -15,14 +15,14 @@
         // Función para cambiar idioma
         function changeLanguage(lang) {
             currentLang = lang; // Actualiza el idioma actual
-            document.getElementById("title").textContent = translations[lang].pruebas[0].prueba;
-            document.getElementById("instruction").textContent = translations[lang].pruebas[0].pregunta;
+            document.getElementById("title").textContent = translations[lang].pruebas[6].prueba;
+            document.getElementById("instruction").textContent = translations[lang].pruebas[6].pregunta;
             document.getElementById("submitButton").textContent = (lang === 'es') ? 'Enviar Respuesta' : (lang === 'en') ? 'Submit Answer' : 'Envoyer la Réponse';
             document.getElementById("respuesta").placeholder = (lang === 'es') ? 'Escribe aquí...' : (lang === 'en') ? 'Write here...' : 'Escribe aquí...';
         }
 
         const palabrasClave = {
-            es: ["santa", "llana", "mar"],
+            es: ["santa", "juliana"],
             en: ["saint", "plain", "sea"],
             fr: ["sainte", "plaine", "mer"]
         };

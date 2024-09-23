@@ -67,6 +67,11 @@ main {
   
 }
 
+.bigImg{
+  width: 70vw;
+  border-radius: 1rem;
+}
+
 .content {
   width: 80%;
   text-align: center;
