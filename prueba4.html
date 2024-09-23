@@ -66,16 +66,31 @@
             <p id="instruction" class="pregunta"></p>
             <p id="instruction1" class="pregunta"></p>
 
-            <!-- Formulario para subir foto -->
-            <form id="fotoForm" action="upload_prueba4.php" method="post" enctype="multipart/form-data">
-                <input type="file" id="foto" name="foto" class="input" accept="video/*" capture="environment" onchange="previsualizarFoto(event)">
+            <form id="videoForm" action="upload_prueba4.php" method="post" enctype="multipart/form-data">
+                <input type="file" id="video" name="video" class="input" accept="video/*" capture="environment" onchange="previsualizarVideo(event)">
                 <input type="hidden" name="lang" value="es"> <!-- Enviar el idioma -->
                 
-                <!-- Previsualización de la foto -->
-                <video id="preview" src="" alt="Previsualización de la foto" style="display:none; max-width:100%; margin-top:10px;"></video>
-
-                <button type="button" id="submitButton" class="button" onclick="confirmarEnvio()">Enviar Foto</button>
+                <!-- Previsualización del video -->
+                <video id="previewVideo" controls style="display:none; max-width:100%; margin-top:10px;"></video>
+            
+                <button type="button" id="submitButton" class="button" onclick="confirmarEnvio()">Enviar Video</button>
             </form>
+            
+            <script>
+            function previsualizarVideo(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const preview = document.getElementById('previewVideo');
+                    const url = URL.createObjectURL(file);
+                    preview.src = url;
+                    preview.style.display = 'block';
+                }
+            }
+            
+            function confirmarEnvio() {
+                document.getElementById('videoForm').submit();
+            }
+            </script>
 
           
         </div>

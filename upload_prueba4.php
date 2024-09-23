@@ -1,52 +1,46 @@
 <?php
-// Definir la carpeta donde se guardarán los videos subidos
-$target_dir = "uploads/prueba4/";
-$target_file = $target_dir . time() . "_" . basename($_FILES["video"]["name"]); // Nombre único para evitar conflictos
-$uploadOk = 1;
-$videoFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+// Configuraciones
+$uploadDir = 'uploads/prueba4/'; // Carpeta donde se guardarán los videos
+$maxFileSize = 100 * 1024 * 1024; // Tamaño máximo del archivo (100 MB)
 
-// Comprobar si se ha enviado el formulario
-if (isset($_POST["submit"])) {
-    // Comprobar si el archivo es un video real comprobando su extensión y MIME type
-    $allowedTypes = array("video/mp4", "video/avi", "video/mov", "video/mkv");
-    $finfo = finfo_open(FILEINFO_MIME_TYPE);
-    $fileMime = finfo_file($finfo, $_FILES["video"]["tmp_name"]);
+// Verificar si el archivo fue enviado a través del formulario
+if (isset($_FILES['video'])) {
+    // Obtener detalles del archivo
+    $fileTmpPath = $_FILES['video']['tmp_name'];
+    $fileName = $_FILES['video']['name'];
+    $fileSize = $_FILES['video']['size'];
+    $fileType = $_FILES['video']['type'];
+    $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-    if (in_array($fileMime, $allowedTypes)) {
-        echo "El archivo es un video - " . $fileMime . ".";
-        $uploadOk = 1;
+    // Extensiones permitidas para mayor seguridad y compatibilidad
+    $allowedExtensions = array('mp4', 'avi', 'mov', 'mkv', 'webm');
+
+    // Verificar si la extensión del archivo es permitida
+    if (in_array($fileExtension, $allowedExtensions)) {
+        // Verificar el tamaño del archivo
+        if ($fileSize > $maxFileSize) {
+            echo "Error: El archivo es demasiado grande. Tamaño máximo: 100 MB.";
+            exit();
+        }
+
+        // Generar un nombre único para el archivo
+        $newFileName = uniqid('video_', true) . '.' . $fileExtension;
+
+        // Ruta completa del archivo a guardar
+        $destinationPath = $uploadDir . $newFileName;
+
+        // Intentar mover el archivo subido a la carpeta de destino
+        if (move_uploaded_file($fileTmpPath, $destinationPath)) {
+            // Redirigir al usuario a prueba4_correcto.html si la subida fue exitosa
+            header("Location: prueba4_correcto.html");
+            exit(); // Termina el script después de redirigir
+        } else {
+            echo "Error al mover el archivo.";
+        }
     } else {
-        echo "El archivo no es un video válido.";
-        $uploadOk = 0;
+        echo "Error: Extensión no permitida. Solo se permiten archivos de video MP4, AVI, MOV, MKV, WEBM.";
     }
-    finfo_close($finfo);
-}
-
-// Comprobar si el archivo ya existe (esto no debería ser un problema si generamos un nombre único)
-if (file_exists($target_file)) {
-    echo "Lo sentimos, el archivo ya existe.";
-    $uploadOk = 0;
-}
-
-// Limitar el tamaño del archivo (500MB en este ejemplo)
-if ($_FILES["video"]["size"] > 500000000) {
-    echo "Lo sentimos, tu archivo es demasiado grande.";
-    $uploadOk = 0;
-}
-
-// Verificar si hubo algún error
-if ($uploadOk == 0) {
-    echo "Lo sentimos, tu archivo no se pudo subir.";
 } else {
-    // Intentar subir el archivo
-    if (move_uploaded_file($_FILES["video"]["tmp_name"], $target_file)) {
-        // Obtener el idioma para redirigir correctamente
-        $lang = isset($_POST['lang']) ? $_POST['lang'] : 'es';
-        // Redirigir a la página de éxito con el idioma correcto
-        header("Location: prueba4_correcto.html?lang=$lang");
-        exit();
-    } else {
-        echo "Lo sentimos, hubo un error al subir tu archivo.";
-    }
+    echo "No se ha enviado ningún archivo.";
 }
 ?>
