@@ -9,7 +9,6 @@
     <script src="languages.js"></script>
     
     <script>
-
         let currentLang = 'es';
 
         // Función para cambiar idioma
@@ -21,30 +20,56 @@
             document.getElementById("submitButton").textContent = (lang === 'es') ? 'Enviar Archivo' : (lang === 'en') ? 'Submit Photo' : 'Envoyer la photo';
         }
 
-        // Función para previsualizar la imagen
-        function previsualizarFoto(event) {
+        // Función para previsualizar el video
+        function previsualizarVideo(event) {
             const fileInput = event.target;
             const file = fileInput.files[0];
-            const preview = document.getElementById("preview");
+            const preview = document.getElementById("previewVideo");
 
             if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = "block"; // Mostrar la imagen
-                };
-                reader.readAsDataURL(file);
+                const url = URL.createObjectURL(file);
+                preview.src = url;
+                preview.style.display = "block"; // Mostrar el video
             }
+        }
+
+        // Función para subir el video
+        function uploadVideo() {
+            const formData = new FormData(document.getElementById('videoForm'));
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('POST', 'upload_prueba4.php', true);
+
+            // Mostrar la barra de progreso
+            document.getElementById('progressContainer').style.display = 'block';
+
+            // Actualizar la barra de progreso
+            xhr.upload.onprogress = function(event) {
+                if (event.lengthComputable) {
+                    const percentComplete = (event.loaded / event.total) * 100;
+                    document.getElementById('progressBar').value = percentComplete;
+                }
+            };
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Redirigir al usuario a prueba4_correcto.html
+                    window.location.href = 'prueba4_correcto.html';
+                } else {
+                    alert('Error al subir el video. Intente nuevamente.');
+                }
+            };
+
+            xhr.send(formData);
         }
 
         // Función para confirmar y enviar el formulario
         function confirmarEnvio() {
-            const confirmacion = confirm("¿Estás seguro de que quieres enviar esta foto?");
+            const confirmacion = confirm("¿Estás seguro de que quieres enviar este video?");
             if (confirmacion) {
-                document.getElementById("fotoForm").submit(); // Enviar el formulario si se confirma
+                uploadVideo(); // Llama a la función de subida del video
             }
         }
-
     </script>
 </head>
 
@@ -61,7 +86,6 @@
     </nav>
 
     <main>
-
         <div class="content">
             <p id="instruction" class="pregunta"></p>
             <p id="instruction1" class="pregunta"></p>
@@ -69,58 +93,20 @@
             <form id="videoForm" action="upload_prueba4.php" method="post" enctype="multipart/form-data">
                 <input type="file" id="video" name="video" class="input" accept="video/*" capture="environment" onchange="previsualizarVideo(event)">
                 <input type="hidden" name="lang" value="es"> <!-- Enviar el idioma -->
-                
+
                 <!-- Previsualización del video -->
                 <video id="previewVideo" controls style="display:none; max-width:100%; margin-top:10px;"></video>
-            
+
+                <!-- Barra de progreso -->
+                <div id="progressContainer" style="display:none; margin-top:10px;">
+                    <progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
+                </div>
+
                 <button type="button" id="submitButton" class="button" onclick="confirmarEnvio()">Enviar Video</button>
             </form>
-            
-            <script>
-                function uploadVideo() {
-                    const formData = new FormData(document.getElementById('videoForm'));
-                    const xhr = new XMLHttpRequest();
-                
-                    xhr.open('POST', 'upload_video.php', true);
-                
-                    // Mostrar la barra de progreso
-                    document.getElementById('progressContainer').style.display = 'block';
-                
-                    // Actualizar la barra de progreso
-                    xhr.upload.onprogress = function(event) {
-                        if (event.lengthComputable) {
-                            const percentComplete = (event.loaded / event.total) * 100;
-                            document.getElementById('progressBar').value = percentComplete;
-                        }
-                    };
-                
-                    xhr.onload = function() {
-                        if (xhr.status === 200) {
-                            // Redirigir al usuario a prueba4_correcto.html
-                            window.location.href = 'prueba4_correcto.html';
-                        } else {
-                            alert('Error al subir el video. Intente nuevamente.');
-                        }
-                    };
-                
-                    xhr.send(formData);
-                }
-                
-                // Previsualizar el video
-                document.getElementById('video').addEventListener('change', function(event) {
-                    const file = event.target.files[0];
-                    if (file) {
-                        const preview = document.getElementById('previewVideo');
-                        const url = URL.createObjectURL(file);
-                        preview.src = url;
-                        preview.style.display = 'block';
-                    }
-                });
-                </script>
-
-          
         </div>
     </main>
+
     <div class="footer">
         <p>&copy; 2024 Gymkhana QR</p>
     </div>
