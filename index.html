@@ -20,6 +20,8 @@
             document.getElementById("i4").textContent = translations[lang].inicio[0].i4;
             document.getElementById("i5").textContent = translations[lang].inicio[0].i5;
             document.getElementById("i6").textContent = translations[lang].inicio[0].i6;
+            document.getElementById("i7").textContent = translations[lang].inicio[0].i7;
+            document.getElementById("next").textContent = translations[lang].inicio[0].next;
 
             // Cambiar los textos de los botones de pruebas
             const pruebas = document.getElementsByClassName('test-link');
@@ -44,8 +46,7 @@
     </nav>
 
     <main>
-        <div class="content">
-
+        
             <h2 id="subtitle"></h2>
 
             <p id="instructions"></p>
@@ -56,46 +57,15 @@
                 <li id="i3"></li>
                 <li id="i4"></li>
                 <li id="i5"></li>
+                <li id="i6"></li>
+                <li id="i7"></li>
 
             </ul>
 
-            <p>Enlaces a las pruebas</p>
-            <!-- Enlaces directos para debug -->
-            <ul>
-                <li><a class="test-link" href="prueba1.html?lang=es">Prueba 1</a></li>
-                <li><a class="test-link" href="prueba2.html?lang=es">Prueba 2</a></li>
-                <li><a class="test-link" href="prueba3.html?lang=es">Prueba 3</a></li>
-                <li><a class="test-link" href="prueba4.html?lang=es">Prueba 4</a></li>
-                <li><a class="test-link" href="prueba5.html?lang=es">Prueba 5</a></li>
-                <li><a class="test-link" href="prueba6.html?lang=es">Prueba 6</a></li>
-                <li><a class="test-link" href="prueba7.html?lang=es">Prueba 7</a></li>
-                <li><a class="test-link" href="prueba8.html?lang=es">Prueba 8</a></li>
-                <li><a class="test-link" href="prueba9.html?lang=es">Prueba 9</a></li>
-                <li><a class="test-link" href="prueba10.html?lang=es">Prueba 10</a></li>
-                <!-- Agregar más enlaces según las pruebas disponibles -->
-            </ul>
-
-            <p>Enlaces a los pasos entre pruebas</p>
-            <li><a class="test-link" href="prueba1_correcto.html">Prueba 1 -> 2</a></li>
-            <li><a class="test-link" href="prueba2_correcto.html?lang=es">Prueba 2 -> 3</a></li>
-            <li><a class="test-link" href="prueba3_correcto.html?lang=es">Prueba 3 -> 4</a></li>
-            <li><a class="test-link" href="prueba4_correcto.html?lang=es">Prueba 4 -> 5</a></li>
-            <li><a class="test-link" href="prueba5_correcto.html?lang=es">Prueba 5 -> 6</a></li>
-            <li><a class="test-link" href="prueba6_correcto.html?lang=es">Prueba 6 -> 7</a></li>
-            <li><a class="test-link" href="prueba7_correcto.html?lang=es">Prueba 7 -> 8</a></li>
-            <li><a class="test-link" href="prueba8_correcto.html?lang=es">Prueba 8 -> 9</a></li>
-            <li><a class="test-link" href="prueba9_correcto.html?lang=es">Prueba 9 -> 10</a></li>
-            <li><a class="test-link" href="prueba10_correcto.html?lang=es">Prueba 10</a></li>
-        </div>
-
-        <p>Puedes acceder a las fotos y videos que se van subiendo desde <a href="https://gymkhanaqr.xyz/WebPage/uploads">aquí</a></p>
-        <p>Te pedirá usuario y contraseña</p>
-        <ul>
-            <li>Usuario:admin</li>
-            <li>Contraseña: uploadsProtected</li>
-        </ul>
-        <p>Verás 3 carpetas distintas. En cada una se subirán los archivos de las pruebas correspondientes</p>
-    </main>
+            <br>
+            <div class="content" id="next"></div>
+            <br>
+   
     <div class="footer">
         <p>&copy; 2024 Gymkhana QR</p>
     </div>

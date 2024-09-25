@@ -3,14 +3,17 @@ const translations = {
         title: "Gymkhana QR",
         inicio: [
             {
-                title: "Página de inicio",
-                subtitle: "De momento pongo aquí enlaces directos a las pruebas para que se puedan ir probando",
-                instructions: "posteriormente pondremos normas y toda información pertitente a la actividad. Cosas a tener en cuenta:",
-                i1: "Se puede cambiar el idioma en todas las pruebas",
-                i2: "Se debe responder a las pruebas en el idioma escogido (aunque aún faltan traducciones, es posible que falle)",
-                i3: "En las pruebas de subir foto, si todo va bien, se redirige al paso entre pruebas correspondiente. Si no, aparecerá un mensaje de error. En ese caso tienen que volver a escanear la prueba e intentarlo de nuevo",
-                i4: "Importante probar las pruebas en distintos móviles (sobre todo en iphone)",
-                i5: "Si la página pide algún permiso dárselo (probablemente pida permiso de cámara)"
+                title: "Bienvenidos a la GymhhanaQR",
+                subtitle: "Esperamos que disfrutéis del juego",
+                instructions: "A continuación, os dejamos las normas de esta actividad:",
+                i1: "El grupo tendrá que ir junto en todo momento.",
+                i2: "Los QR de las pruebas han de dejarse exáctamente en el lugar donde se encontraron",
+                i3: "Los QR de las pruebas están numerados, debéis respetar el orden de las pruebas.",
+                i4: "Recordad que podéis preguntar a la gente o hacer uso de vuestros dispositivos para resolver las pruebas",
+                i5: "En caso de que en alguna prueba la página os solicite algún permiso (lo más probable es que sea permiso de cámara), por favor, dadlo. Sin ello no se podrá completar la prueba",
+                i6: "En caso de perdida o duda poneros en contacto con la organizadora a través del número: 606608630",
+                i7: "Como habéis comprobado existe la posibilidad de seleccionar distintos idiomas. Las pruebas deberán responderse en el idioma seleccionado",
+                next:"Una vez leídas las normas dirigíos a la coordinadora para comenzar con la primera prueba"
             }
         ],
         pruebas: [
@@ -114,15 +117,18 @@ const translations = {
         title: "QR Gymkhana",
         inicio: [
             {
-                title: "Home Page",
-                subtitle: "For now, I will place direct links to the challenges here so they can be tested.",
-                instructions: "Later, we will add rules and all relevant information about the activity. Things to keep in mind:",
-                i1: "The language can be changed in all challenges.",
-                i2: "You must answer the challenges in the chosen language (although some translations are still missing, it might fail).",
-                i3: "In the photo upload challenges, if everything goes well, you will be redirected to the corresponding next step. If not, an error message will appear. In that case, you need to rescan the QR and try again.",
-                i4: "It's important to test the challenges on different phones (especially on iPhone).",
-                i5: "If the page requests any permissions, grant them (it will likely ask for camera permission)."
-            }
+                title: "Welcome to GymhhanaQR",
+                subtitle: "We hope you enjoy the game",
+                instructions: "Here are the rules for this activity:",
+                i1: "The group must stay together at all times.",
+                i2: "The test QRs must be left exactly where they were found.",
+                i3: "The test QRs are numbered, you must follow the order of the tests.",
+                i4: "Remember that you can ask people or use your devices to solve the tests.",
+                i5: "If any test asks for permission (most likely camera access), please grant it. Without this, the test cannot be completed.",
+                i6: "In case of loss or doubt, contact the organizer at: +34 606608630.",
+                i7: "As you have seen, it is possible to select different languages. The tests must be answered in the selected language.",
+                next:"Once the rules have been read, go to the coordinator to begin the first activity."
+            }            
         ],
         pruebas: [
             {
@@ -225,15 +231,19 @@ const translations = {
         title: "Gymkhana QR",
         inicio: [
             {
-                title: "Page d'accueil",
-                subtitle: "Pour l'instant, je mets ici des liens directs vers les épreuves pour que vous puissiez les tester.",
-                instructions: "Ensuite, nous ajouterons des règles et toutes les informations pertinentes sur l'activité. Points à prendre en compte :",
-                i1: "Vous pouvez changer la langue dans toutes les épreuves.",
-                i2: "Vous devez répondre aux épreuves dans la langue choisie (bien que certaines traductions manquent encore, il se peut que cela ne fonctionne pas).",
-                i3: "Dans les épreuves où il faut télécharger une photo, si tout se passe bien, vous serez redirigé vers l'étape suivante. Sinon, un message d'erreur apparaîtra. Dans ce cas, vous devez scanner à nouveau l'épreuve et réessayer.",
-                i4: "Il est important de tester les épreuves sur différents téléphones (surtout sur iPhone).",
-                i5: "Si la page demande des permissions, accordez-les (elle demandera probablement l'accès à la caméra)."
+                title: "Bienvenue à la GymhhanaQR",
+                subtitle: "Nous espérons que vous apprécierez le jeu",
+                instructions: "Voici les règles de cette activité :",
+                i1: "Le groupe doit rester ensemble en tout temps.",
+                i2: "Les QR des épreuves doivent être laissés exactement à l'endroit où ils ont été trouvés.",
+                i3: "Les QR des épreuves sont numérotés, vous devez respecter l'ordre des épreuves.",
+                i4: "N'oubliez pas que vous pouvez demander aux gens ou utiliser vos appareils pour résoudre les épreuves.",
+                i5: "Si une épreuve vous demande une autorisation (probablement celle de la caméra), veuillez l'accorder. Sans cela, il ne sera pas possible de terminer l'épreuve.",
+                i6: "En cas de perte ou de doute, contactez l'organisateur au numéro : +34 606608630.",
+                i7: "Comme vous l'avez vu, il est possible de sélectionner différentes langues. Les épreuves doivent être répondues dans la langue sélectionnée.",
+                next:"Une fois le règlement lu, rendez-vous chez le coordinateur pour commencer la première épreuve."
             }
+            
         ],
         pruebas: [
             {

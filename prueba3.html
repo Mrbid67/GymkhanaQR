@@ -7,7 +7,7 @@
     <title>Prueba 3</title>
     <link rel="stylesheet" href="style.css">
     <script src="languages.js"></script>
-    
+
     <script>
 
         let currentLang = 'es';
@@ -23,11 +23,12 @@
 
         const palabrasClave = {
             es: ["casa", "hombrones", "hombres", "escudo"],
-            en: ["saint", "plain", "sea"],
-            fr: ["sainte", "plaine", "mer"]
+            en: ["house", "big men", "men", "shield"],
+            fr: ["maison", "grands hommes", "hommes", "bouclier"]
         };
 
-           // Función para validar la respuesta
+
+        // Función para validar la respuesta
         function validarRespuesta() {
             const respuesta = document.getElementById("respuesta").value.toLowerCase();
             const palabras = palabrasClave[currentLang]; // Obtener las palabras clave para el idioma actual
@@ -49,7 +50,7 @@
 
                 // Mostrar el mensaje y ocultarlo después de 5 segundos
                 mensajeElemento.style.display = 'block';
-                setTimeout(function() {
+                setTimeout(function () {
                     mensajeElemento.style.display = 'none';
                 }, 5000); // 5000 milisegundos = 5 segundos
             }
