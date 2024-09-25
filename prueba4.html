@@ -7,7 +7,7 @@
     <title>Prueba 4</title>
     <link rel="stylesheet" href="style.css">
     <script src="languages.js"></script>
-    
+
     <script>
         let currentLang = 'es';
 
@@ -35,6 +35,16 @@
 
         // Función para subir el video
         function uploadVideo() {
+
+            // Check if a file (photo) has been selected
+            const fileInput = document.getElementById('video');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Por favor, seleccione una imagen antes de continuar.');
+                return;  // Exit the function if no file is selected
+            }
+
             const formData = new FormData(document.getElementById('videoForm'));
             const xhr = new XMLHttpRequest();
 
@@ -44,14 +54,14 @@
             document.getElementById('progressContainer').style.display = 'block';
 
             // Actualizar la barra de progreso
-            xhr.upload.onprogress = function(event) {
+            xhr.upload.onprogress = function (event) {
                 if (event.lengthComputable) {
                     const percentComplete = (event.loaded / event.total) * 100;
                     document.getElementById('progressBar').value = percentComplete;
                 }
             };
 
-            xhr.onload = function() {
+            xhr.onload = function () {
                 if (xhr.status === 200) {
                     // Redirigir al usuario a prueba4_correcto.html
                     window.location.href = 'prueba4_correcto.html';
@@ -80,7 +90,8 @@
     </header>
 
     <nav>
-        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png" width="40rem"></a>
+        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png"
+                width="40rem"></a>
         <a onclick="changeLanguage('en')" class="language"><img src="resources/englishFlag.png" width="40rem"></a>
         <a onclick="changeLanguage('fr')" class="language"><img src="resources/franceFlag.png" width="40rem"></a>
     </nav>
@@ -91,7 +102,8 @@
             <p id="instruction1" class="pregunta"></p>
 
             <form id="videoForm" action="upload_prueba4.php" method="post" enctype="multipart/form-data">
-                <input type="file" id="video" name="video" class="input" accept="video/*" capture="environment" onchange="previsualizarVideo(event)">
+                <input type="file" id="video" name="video" class="input" accept="video/*" capture="environment"
+                    onchange="previsualizarVideo(event)">
                 <input type="hidden" name="lang" value="es"> <!-- Enviar el idioma -->
 
                 <!-- Previsualización del video -->

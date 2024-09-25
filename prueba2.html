@@ -86,6 +86,16 @@
 
             <script>
                 function uploadImage() {
+
+                    // Check if a file (photo) has been selected
+                    const fileInput = document.getElementById('foto');
+                    const file = fileInput.files[0];
+
+                    if (!file) {
+                        alert('Por favor, seleccione una imagen antes de continuar.');
+                        return;  // Exit the function if no file is selected
+                    }
+
                     const formData = new FormData(document.getElementById('fotoForm'));
                     const xhr = new XMLHttpRequest();
 

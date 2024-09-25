@@ -7,7 +7,7 @@
     <title>Prueba 9</title>
     <link rel="stylesheet" href="style.css">
     <script src="languages.js"></script>
-    
+
     <script>
 
         let currentLang = 'es';
@@ -29,7 +29,7 @@
 
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     preview.src = e.target.result;
                     preview.style.display = "block"; // Mostrar la imagen
                 };
@@ -55,7 +55,8 @@
     </header>
 
     <nav>
-        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png" width="40rem"></a>
+        <a onclick="changeLanguage('es')" class="language language-select"><img src="resources/spainFlag.png"
+                width="40rem"></a>
         <a onclick="changeLanguage('en')" class="language"><img src="resources/englishFlag.png" width="40rem"></a>
         <a onclick="changeLanguage('fr')" class="language"><img src="resources/franceFlag.png" width="40rem"></a>
     </nav>
@@ -66,64 +67,74 @@
             <p id="instruction" class="pregunta"></p>
             <p id="instruction1" class="pregunta"></p>
 
-           <!-- Formulario para subir imagen -->
-           <form id="fotoForm" action="upload_prueba9.php" method="post" enctype="multipart/form-data">
-            <input type="file" id="foto" name="foto" class="input" accept="image/*" capture="environment">
-            <input type="hidden" name="lang" value="es"> <!-- Enviar el idioma -->
+            <!-- Formulario para subir imagen -->
+            <form id="fotoForm" action="upload_prueba9.php" method="post" enctype="multipart/form-data">
+                <input type="file" id="foto" name="foto" class="input" accept="image/*" capture="environment">
+                <input type="hidden" name="lang" value="es"> <!-- Enviar el idioma -->
 
-            <!-- Previsualización de la imagen -->
-            <img id="preview" src="" alt="Previsualización de la imagen"
-                style="display:none; max-width:100%; margin-top:10px;" />
+                <!-- Previsualización de la imagen -->
+                <img id="preview" src="" alt="Previsualización de la imagen"
+                    style="display:none; max-width:100%; margin-top:10px;" />
 
-            <button type="button" id="submitButton" class="button" onclick="uploadImage()">Enviar Imagen</button>
+                <button type="button" id="submitButton" class="button" onclick="uploadImage()">Enviar Imagen</button>
 
-            <!-- Barra de progreso -->
-            <div id="progressContainer" style="display:none; margin-top:10px;">
-                <progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
-            </div>
-        </form>
+                <!-- Barra de progreso -->
+                <div id="progressContainer" style="display:none; margin-top:10px;">
+                    <progress id="progressBar" value="0" max="100" style="width:100%;"></progress>
+                </div>
+            </form>
 
-        <script>
-            function uploadImage() {
-                const formData = new FormData(document.getElementById('fotoForm'));
-                const xhr = new XMLHttpRequest();
+            <script>
+                function uploadImage() {
 
-                xhr.open('POST', 'upload_prueba9.php', true);
+                    // Check if a file (photo) has been selected
+                    const fileInput = document.getElementById('foto');
+                    const file = fileInput.files[0];
 
-                // Mostrar la barra de progreso
-                document.getElementById('progressContainer').style.display = 'block';
-
-                // Actualizar la barra de progreso
-                xhr.upload.onprogress = function (event) {
-                    if (event.lengthComputable) {
-                        const percentComplete = (event.loaded / event.total) * 100;
-                        document.getElementById('progressBar').value = percentComplete;
+                    if (!file) {
+                        alert('Por favor, seleccione una imagen antes de continuar.');
+                        return;  // Exit the function if no file is selected
                     }
-                };
 
-                xhr.onload = function () {
-                    if (xhr.status === 200) {
-                        // Redirigir al usuario a prueba2_correcto.html
-                        window.location.href = 'prueba9_correcto.html';
-                    } else {
-                        alert('Error al subir la imagen. Intente nuevamente.');
-                    }
-                };
+                    const formData = new FormData(document.getElementById('fotoForm'));
+                    const xhr = new XMLHttpRequest();
 
-                xhr.send(formData);
-            }
+                    xhr.open('POST', 'upload_prueba9.php', true);
 
-            // Previsualizar la imagen
-            document.getElementById('foto').addEventListener('change', function (event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const preview = document.getElementById('preview');
-                    const url = URL.createObjectURL(file);
-                    preview.src = url;
-                    preview.style.display = 'block';
+                    // Mostrar la barra de progreso
+                    document.getElementById('progressContainer').style.display = 'block';
+
+                    // Actualizar la barra de progreso
+                    xhr.upload.onprogress = function (event) {
+                        if (event.lengthComputable) {
+                            const percentComplete = (event.loaded / event.total) * 100;
+                            document.getElementById('progressBar').value = percentComplete;
+                        }
+                    };
+
+                    xhr.onload = function () {
+                        if (xhr.status === 200) {
+                            // Redirigir al usuario a prueba2_correcto.html
+                            window.location.href = 'prueba9_correcto.html';
+                        } else {
+                            alert('Error al subir la imagen. Intente nuevamente.');
+                        }
+                    };
+
+                    xhr.send(formData);
                 }
-            });
-        </script>
+
+                // Previsualizar la imagen
+                document.getElementById('foto').addEventListener('change', function (event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const preview = document.getElementById('preview');
+                        const url = URL.createObjectURL(file);
+                        preview.src = url;
+                        preview.style.display = 'block';
+                    }
+                });
+            </script>
 
             <p id="mensaje" style="color: red; display: none;"></p>
         </div>
